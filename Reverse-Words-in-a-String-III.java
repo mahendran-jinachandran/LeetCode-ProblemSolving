@@ -7,7 +7,7 @@ class Solution {
         int i = 0;
         int j = 0;
         while(i < s.length()) {
-            if(j < s.length() && (newWord[j] == ' ' || j == s.length() - 1)) {
+            if(newWord[j] == ' ' || j == s.length() - 1) {
                 
                 int z = 0;
                 if(newWord[j] == ' ') {
