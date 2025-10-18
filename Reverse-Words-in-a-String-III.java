@@ -8,15 +8,9 @@ class Solution {
         int j = 0;
         int n = s.length();
         while(i < n) {
-            if(newWord[j] == ' ' || j == n - 1) {
+            if(j == n || newWord[j] == ' ') {
                 
-                int z = 0;
-                if(newWord[j] == ' ') {
-                    z = j - 1;
-                } else {
-                    z = j;
-                }
-
+                int z = j - 1;
                 while(i < z) {
                     char temp = newWord[i];
                     newWord[i++] = newWord[z];
