@@ -6,8 +6,9 @@ class Solution {
         char[] newWord = s.toCharArray();
         int i = 0;
         int j = 0;
-        while(i < s.length()) {
-            if(newWord[j] == ' ' || j == s.length() - 1) {
+        int n = s.length();
+        while(i < n) {
+            if(newWord[j] == ' ' || j == n - 1) {
                 
                 int z = 0;
                 if(newWord[j] == ' ') {
@@ -18,10 +19,8 @@ class Solution {
 
                 while(i < z) {
                     char temp = newWord[i];
-                    newWord[i] = newWord[z];
-                    newWord[z] = temp;
-                    i++;
-                    z--;
+                    newWord[i++] = newWord[z];
+                    newWord[z--] = temp;
                 }
 
                 i = j + 1;
