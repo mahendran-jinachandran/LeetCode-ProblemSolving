@@ -1,23 +1,18 @@
 class Solution {
     public int reverse(int x) {
-        
-        long answer = 0;
-        boolean isNegative = false;
-        if(x < 0) {
-            x = Math.abs(x);
-            isNegative = true;
-        }
 
-        while(x > 0) {
-            int value = x % 10;
-            answer = answer * 10 + value;
+        int reversedNumber = 0;
+        while (x != 0) {
+
+            if (reversedNumber > Integer.MAX_VALUE / 10 || reversedNumber < Integer.MIN_VALUE / 10) {
+                return 0;
+            }
+
+            int lastDigit = x % 10;
+            reversedNumber = reversedNumber * 10 + lastDigit;
             x = x / 10;
         }
-
-        if(answer > Integer.MAX_VALUE || answer < Integer.MIN_VALUE) {
-            return 0;
-        }
-
-        return isNegative ?  (int) -answer : (int) answer;
+      
+        return reversedNumber;
     }
 }
