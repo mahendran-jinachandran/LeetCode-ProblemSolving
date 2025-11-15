@@ -1,0 +1,27 @@
+class Solution {
+    public int[] nextGreaterElements(int[] nums) {
+        
+        int n = nums.length;
+        int[] ans = new int[nums.length];
+        Arrays.fill(ans, -1);
+
+        for(int i = 0; i < n; i++) {
+            int j = (i + 1) % n;
+            // System.out.println("INNER");
+            while(j != i) {
+                
+                if(nums[j] > nums[i]) {
+                    ans[i] = nums[j];
+                    break;
+                }
+
+                j++;
+                j = j % n;
+                // System.out.println("J: " +j);
+                // System.out.println("I: " +i);
+            }   
+        }
+
+        return ans;
+    }
+}
