@@ -1,27 +1,28 @@
-class Solution {
-    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-        
-        int[] ans = new int[nums1.length];
-        Arrays.fill(ans, -1);
-        int m = nums1.length;
-        int n = nums2.length;
-
-        for(int i = 0; i < m; i++) {
-
-            boolean isReached = false;
-            for(int j = 0; j < n ; j++) {
-
-                if(nums1[i] == nums2[j]) {
-                    isReached = true;
-                }
-
-                if(isReached && nums2[j] > nums1[i]) {
-                    ans[i] = nums2[j];
-                    break;
-                }
-            }
-        }
-
-        return ans;
-    }
-}
+1class Solution {
+2    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+3    
+4        HashMap<Integer, Integer> map = new HashMap<>();
+5        Deque<Integer> st = new ArrayDeque<>();
+6
+7        for(int x: nums2) {
+8
+9            while(!st.isEmpty() && x > st.peek()) {
+10                map.put(st.pop(), x);
+11            }
+12
+13            st.push(x);
+14        }
+15
+16        while(!st.isEmpty()) {
+17            map.put(st.pop(), -1);
+18        }
+19
+20        int n = nums1.length;
+21        int[] arr = new int[n];
+22        for(int i = 0; i < n; i++) {
+23            arr[i] = map.get(nums1[i]);
+24        } 
+25
+26        return arr;
+27    }
+28}
