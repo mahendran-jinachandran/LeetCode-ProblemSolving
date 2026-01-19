@@ -25,18 +25,17 @@
 25            fast = fast.next.next;
 26
 27            if(slow == fast) {
-28                System.out.println(slow.val);
-29                ListNode ptr = head;
-30
-31                while (ptr != slow) {
-32                    ptr = ptr.next;
-33                    slow = slow.next;
-34                }
-35
-36                return ptr;
-37            }
-38        }
-39
-40        return null;
-41    }
-42}
+28                ListNode ptr = head;
+29
+30                while (ptr != slow) {
+31                    ptr = ptr.next;
+32                    slow = slow.next;
+33                }
+34
+35                return ptr;
+36            }
+37        }
+38
+39        return null;
+40    }
+41}
