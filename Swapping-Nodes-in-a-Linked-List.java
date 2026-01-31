@@ -11,34 +11,24 @@
 11class Solution {
 12    public ListNode swapNodes(ListNode head, int k) {
 13        
-14        int n = 0;
-15        ListNode curr = head;
-16        while(curr != null) {
-17            n++;
-18            curr = curr.next;
-19        }
-20
-21        curr = head;
-22        ListNode firstK = null;
-23        ListNode secondK = null;
-24        int start = 1;
-25        while(curr != null) {
-26            if(start == k) {
-27                firstK = curr;
-28            }
-29
-30            if(n == k) {
-31                secondK = curr;
-32            }
-33
-34            n--;
-35            start++;
-36            curr = curr.next;
-37        }
-38
-39        int val = firstK.val;
-40        firstK.val = secondK.val;
-41        secondK.val = val;
-42        return head;
-43    }
-44}
+14        ListNode curr = head;
+15        ListNode firstK = null;
+16        ListNode secondK = null;
+17
+18        while(curr != null) {
+19            secondK = secondK == null ? null : secondK.next;
+20            if(--k == 0) {
+21                firstK = curr;
+22                secondK = head;
+23            }
+24
+25            curr = curr.next;
+26        }
+27
+28
+29        int val = firstK.val;
+30        firstK.val = secondK.val;
+31        secondK.val = val;
+32        return head;
+33    }
+34}
