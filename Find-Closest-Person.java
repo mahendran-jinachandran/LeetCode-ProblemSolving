@@ -1,9 +1,12 @@
 1class Solution {
 2    public int findClosest(int x, int y, int z) {
-3        
-4        int firstAndThird = Math.abs(x - z);
-5        int secondAndThird = Math.abs(y - z);
-6
-7        return firstAndThird == secondAndThird ? 0 : firstAndThird < secondAndThird ? 1 : 2;
-8    }
-9}
+3       int a=Math.abs(z-x);
+4        int b=Math.abs(z-y);
+5        if(a==b)
+6        return 0;
+7        else if(a>b)
+8        return 2;
+9        else
+10        return 1;
+11    }
+12}
