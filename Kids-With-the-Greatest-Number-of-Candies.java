@@ -3,14 +3,16 @@
 3        
 4        int max = 0;
 5        for(int candy: candies) {
-6            max = Math.max(candy, max);
-7        }
-8
-9        List<Boolean> extra = new ArrayList<>();
-10        for(int candy: candies) {
-11            extra.add(candy + extraCandies >= max);
-12        }
-13
-14        return extra;
-15    }
-16}
+6            if(candy > max) {
+7                max = candy;
+8            } 
+9        }
+10
+11        List<Boolean> extra = new ArrayList<>();
+12        for(int candy: candies) {
+13            extra.add(candy + extraCandies >= max);
+14        }
+15
+16        return extra;
+17    }
+18}
