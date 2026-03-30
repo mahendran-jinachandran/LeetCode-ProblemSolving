@@ -11,7 +11,7 @@
 11    }
 12
 13    private Node[] buckets;
-14    int SIZE = 100000;
+14    int SIZE = 1000;
 15
 16    public MyHashMap() {
 17        buckets = new Node[SIZE];
@@ -43,51 +43,49 @@
 43            }
 44
 45            curr = curr.next;
-46        }
-47
-48        
-49    }
-50    
-51    public int get(int key) {
-52        int index = hash(key);
-53        Node head = buckets[index];
-54
-55        Node curr = head;
-56        while(curr != null) {
-57            if(curr.key == key) {
-58                return curr.value;
-59            }
-60
-61            curr = curr.next;
-62        }
-63
-64        return -1;
-65    }
-66    
-67    public void remove(int key) {
-68        int index = hash(key);
-69        Node curr = buckets[index];
-70        Node prev = null;
-71
-72        while (curr != null) {
-73            if (curr.key == key) {
-74                if (prev == null) {
-75                    buckets[index] = curr.next; 
-76                } else {
-77                    prev.next = curr.next;
-78                }
-79                return;
-80            }
-81            prev = curr;
-82            curr = curr.next;
-83        }
-84    }
-85}
-86
-87/**
-88 * Your MyHashMap object will be instantiated and called as such:
-89 * MyHashMap obj = new MyHashMap();
-90 * obj.put(key,value);
-91 * int param_2 = obj.get(key);
-92 * obj.remove(key);
-93 */
+46        }  
+47    }
+48    
+49    public int get(int key) {
+50        int index = hash(key);
+51        Node head = buckets[index];
+52
+53        Node curr = head;
+54        while(curr != null) {
+55            if(curr.key == key) {
+56                return curr.value;
+57            }
+58
+59            curr = curr.next;
+60        }
+61
+62        return -1;
+63    }
+64    
+65    public void remove(int key) {
+66        int index = hash(key);
+67        Node curr = buckets[index];
+68        Node prev = null;
+69
+70        while (curr != null) {
+71            if (curr.key == key) {
+72                if (prev == null) {
+73                    buckets[index] = curr.next; 
+74                } else {
+75                    prev.next = curr.next;
+76                }
+77                return;
+78            }
+79            prev = curr;
+80            curr = curr.next;
+81        }
+82    }
+83}
+84
+85/**
+86 * Your MyHashMap object will be instantiated and called as such:
+87 * MyHashMap obj = new MyHashMap();
+88 * obj.put(key,value);
+89 * int param_2 = obj.get(key);
+90 * obj.remove(key);
+91 */
