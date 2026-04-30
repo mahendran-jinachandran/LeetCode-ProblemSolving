@@ -15,16 +15,15 @@
 15 */
 16class Solution {
 17
-18    List<Integer> traversal = new LinkedList<>();
+18    List<Integer> result = new ArrayList<>();
 19    public List<Integer> preorderTraversal(TreeNode root) {
-20
-21        if(root == null) {
-22            return new ArrayList<>();
-23        }
-24
-25        traversal.add(root.val);
-26        preorderTraversal(root.left);
-27        preorderTraversal(root.right);
-28        return traversal;
-29    }
-30}
+20        if(root == null) {
+21            return result;
+22        }
+23
+24        result.add(root.val);
+25        preorderTraversal(root.left);
+26        preorderTraversal(root.right);
+27        return result;
+28    }
+29}
