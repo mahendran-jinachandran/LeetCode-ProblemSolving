@@ -20,9 +20,8 @@
 20            return 0;
 21        }
 22
-23        int left = 1 + maxDepth(root.left);
-24        int right = 1 + maxDepth(root.right);
-25        return Math.max(left, right);
-26        
-27    }
-28}
+23        int leftTreeHeight = maxDepth(root.left) + 1;
+24        int rightTreeHeight = maxDepth(root.right) + 1;
+25        return Math.max(leftTreeHeight, rightTreeHeight);
+26    }
+27}
