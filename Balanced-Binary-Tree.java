@@ -29,8 +29,8 @@
 29
 30        return Math.max(left, right) + 1;
 31    }
-32    public boolean isBalanced(TreeNode root) {
-33        return isBalancedOrNot(root) >= 0;
-34        
+32
+33    public boolean isBalanced(TreeNode root) {
+34        return isBalancedOrNot(root) >= 0;    
 35    }
 36}
