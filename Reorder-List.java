@@ -1,43 +1,44 @@
-1class Solution {
-2
-3    private ListNode reverseList(ListNode head) {
-4        ListNode prev = null;
-5        ListNode curr = head;
-6
-7        while (curr != null) {
-8            ListNode next = curr.next;
-9            curr.next = prev;
-10            prev = curr;
-11            curr = next;
-12        }
-13        return prev;
-14    }
-15
-16    public void reorderList(ListNode head) {
-17        if (head == null || head.next == null) return;
-18
-19        ListNode slow = head, fast = head;
-20        while (fast != null && fast.next != null) {
-21            slow = slow.next;
-22            fast = fast.next.next;
-23        }
-24
-25        ListNode second = slow.next;
-26        slow.next = null;
-27        ListNode node = reverseList(second);
-28
-29        ListNode first = head;
-30        second = node;
+1/**
+2 * Definition for singly-linked list.
+3 * public class ListNode {
+4 *     int val;
+5 *     ListNode next;
+6 *     ListNode() {}
+7 *     ListNode(int val) { this.val = val; }
+8 *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+9 * }
+10 */
+11
+12class Solution {
+13    public void reorderList(ListNode head) {
+14        
+15        ListNode slow = head;
+16        ListNode fast = head.next;
+17
+18        while(fast != null && fast.next != null) {
+19            slow = slow.next;
+20            fast = fast.next.next;
+21        }
+22
+23        ListNode second = slow.next;
+24        ListNode prev = slow.next = null;
+25        while(second != null) {
+26            ListNode temp = second.next;
+27            second.next = prev;
+28            prev = second;
+29            second = temp;
+30        }
 31
-32        while (second != null) {
-33            ListNode temp1 = first.next;
-34            ListNode temp2 = second.next;
-35
-36            first.next = second;
-37            second.next = temp1;
-38
-39            first = temp1;
-40            second = temp2;
-41        }        
+32        ListNode first = head;
+33        second = prev;
+34        while (second != null) {
+35            ListNode tmp1 = first.next;
+36            ListNode tmp2 = second.next;
+37            first.next = second;
+38            second.next = tmp1;
+39            first = tmp1;
+40            second = tmp2;
+41        }
 42    }
 43}
+44
